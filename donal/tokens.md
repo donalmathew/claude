@@ -1,3 +1,6 @@
+## After each successful registration, you'll get a token. Save these tokens as you'll need them for authenticated requests later.
+
+
 {"organization":{"id":"678e7763dbddfe970a4913ca","name":"College","orgId":"COLLEGE001","level":0,"isVenueManager":false},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OGU3NzYzZGJkZGZlOTcwYTQ5MTNjYSIsImlhdCI6MTczNzM4OTkyMywiZXhwIjoxNzM3NDc2MzIzfQ.vjEeVI0XNpD71rHR4ATTayGR6uxW00B0N84Og-pLu48"}
 
 {"organization":{"id":"678e77e5dbddfe970a4913cd","name":"CGPU","orgId":"CGPU001","level":1,"isVenueManager":true},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3OGU3N2U1ZGJkZGZlOTcwYTQ5MTNjZCIsImlhdCI6MTczNzM5MDA1MywiZXhwIjoxNzM3NDc2NDUzfQ.7dSl_5XPIjAw4Bm8jeCLPAaompOwAonNkI3qIldgmMU"}

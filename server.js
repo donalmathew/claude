@@ -19,6 +19,8 @@ app.use(express.json());
 // Routes
 const organizationRoutes = require('./src/routes/organization');
 app.use('/api/organizations', organizationRoutes);
+const venueRoutes = require('./src/routes/venue');
+app.use('/api/venues', venueRoutes);
 
 // Basic route for testing
 app.get('/', (req, res) => {
