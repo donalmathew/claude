@@ -21,6 +21,10 @@ const organizationRoutes = require('./src/routes/organization');
 app.use('/api/organizations', organizationRoutes);
 const venueRoutes = require('./src/routes/venue');
 app.use('/api/venues', venueRoutes);
+const eventRoutes = require('./src/routes/event');
+app.use('/api/events', eventRoutes);
+const venueBookingRoutes = require('./src/routes/venueBooking');
+app.use('/api/venue-bookings', venueBookingRoutes);
 
 // Basic route for testing
 app.get('/', (req, res) => {

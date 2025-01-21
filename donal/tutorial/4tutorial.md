@@ -295,3 +295,6 @@ Now that we've confirmed our venue management is working correctly, shall we mov
 3. Events go through the approval chain
 
 Would you like to proceed with that? 😊
+
+
+-----------------------------------------------
