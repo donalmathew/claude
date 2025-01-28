@@ -155,4 +155,33 @@ router.get('/my-events', auth, async (req, res) => {
     }
 });
 
+// Add new route for canceling events in backend
+// src/routes/event.js (backend) - Add this new route
+router.put('/:eventId/cancel', auth, async (req, res) => {
+    try {
+      const event = await Event.findById(req.params.eventId);
+      
+      if (!event) {
+        return res.status(404).json({ message: 'Event not found' });
+      }
+  
+      if (event.createdBy.toString() !== req.organization._id.toString()) {
+        return res.status(403).json({ message: 'Not authorized to cancel this event' });
+      }
+  
+      event.status = 'cancelled';
+      await event.save();
+  
+      // Cancel venue booking
+      await VenueBooking.findOneAndUpdate(
+        { event: event._id },
+        { status: 'cancelled' }
+      );
+  
+      res.json(event);
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error: error.message });
+    }
+  });
+
 module.exports = router;

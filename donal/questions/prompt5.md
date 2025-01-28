@@ -1,0 +1,1 @@
+we can continue with: "Simple venue management for CGPU". and is the flow of the program all complete?

@@ -92,4 +92,36 @@ router.post('/login', async (req, res) => {
     }
 });
 
+//new code created after working with frontend
+router.get('/hierarchy', auth, async (req, res) => {
+    try {
+      // Get all organizations
+      const organizations = await Organization.find().lean();
+      
+      // Create a map for quick lookup
+      const orgMap = new Map();
+      organizations.forEach(org => {
+        org.children = [];
+        orgMap.set(org._id.toString(), org);
+      });
+      
+      // Build the tree
+      const root = organizations.find(org => org.level === 0); // College is root
+      organizations.forEach(org => {
+        if (org.parentOrganization) {
+          const parentId = org.parentOrganization.toString();
+          const parent = orgMap.get(parentId);
+          if (parent) {
+            parent.children.push(org);
+          }
+        }
+      });
+      
+      res.json(root);
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error: error.message });
+    }
+  });
+
+
 module.exports = router;
